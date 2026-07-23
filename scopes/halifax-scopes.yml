@@ -1,0 +1,43 @@
+generated: '2026-07-23'
+method: searched
+source: https://developer.lloydsbanking.com/prod01/lbg/read-write
+docs: https://openbankinguk.github.io/read-write-api-site3/v3.1.11/profiles/read-write-data-api-profile.html
+note: >-
+  OBIE Read/Write standard scopes for the FAPI-secured AIS/PIS/CBPII APIs.
+  Not derivable from the captured Open Data swagger (which is public and
+  declares no oauth2 securityScheme); sourced from the OBIE Read/Write standard
+  and the Lloyds Banking Group Developer Portal. The Open Data APIs require no
+  scopes.
+schemes:
+  - name: OAuth2
+    flows:
+      - flow: clientCredentials
+        tokenUrl: https://authorise.<gated>/token
+        note: Token URL is provisioned per-TPP via the Lloyds Developer Portal / OB Directory; not publicly published.
+      - flow: authorizationCode
+        note: Authorization + token endpoints discovered per-brand via OIDC; onboarding-gated.
+scopes:
+  - scope: openid
+    description: OpenID Connect authentication of the payment service user (PSU).
+    flows: [authorizationCode]
+  - scope: accounts
+    description: >-
+      Account and Transaction Information (AIS). Read account, balance,
+      transaction, beneficiary, standing-order, direct-debit, product, offer,
+      party, scheduled-payment and statement data under an account-access-consent.
+    flows: [clientCredentials, authorizationCode]
+    apis: [halifax-account-transaction-information-api]
+  - scope: payments
+    description: >-
+      Payment Initiation (PIS). Set up and submit domestic, international,
+      scheduled, standing-order and (where supported) variable-recurring
+      payments under a payment consent. Refresh tokens supported for VRP.
+    flows: [clientCredentials, authorizationCode]
+    apis: [halifax-payment-initiation-api]
+  - scope: fundsconfirmation
+    description: >-
+      Confirmation of Funds (CBPII). Confirm whether funds are available for a
+      specified amount on a PSU account under a funds-confirmation-consent.
+    flows: [clientCredentials, authorizationCode]
+    apis: [halifax-confirmation-of-funds-api]
+refresh_tokens_supported: [accounts, payments, fundsconfirmation]

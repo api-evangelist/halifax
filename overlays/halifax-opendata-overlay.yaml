@@ -1,0 +1,33 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Halifax OBIE Open Data API
+  version: 1.0.0
+extends: openapi/openbanking-opendata-standard-swagger.json
+x-provenance:
+  generated: '2026-07-23'
+  method: generated
+  note: >-
+    Non-mutating enhancements over the harvested OBIE Open Data swagger. Adds
+    stable operationIds (the source spec declares none), provider identity, and
+    the api.halifax.co.uk production host so the six Open Data operations are
+    addressable by agents and the rating tooling. The original spec is never
+    modified.
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: Halifax
+      x-apievangelist-brand-of: Lloyds Banking Group (Bank of Scotland plc)
+      x-apievangelist-production-host: https://api.halifax.co.uk/open-banking/v2.2
+      x-apievangelist-standard: UK Open Banking OBIE Open Data v2.2
+  - target: $.paths./branches.get
+    update: {operationId: getBranches, summary: List all Halifax branches}
+  - target: $.paths./atms.get
+    update: {operationId: getAtms, summary: List all Halifax ATMs (cashpoints)}
+  - target: $.paths./personal-current-accounts.get
+    update: {operationId: getPersonalCurrentAccounts, summary: List personal current account products}
+  - target: $.paths./business-current-accounts.get
+    update: {operationId: getBusinessCurrentAccounts, summary: List business current account products}
+  - target: $.paths./unsecured-sme-loans.get
+    update: {operationId: getUnsecuredSmeLoans, summary: List unsecured SME loan products}
+  - target: $.paths./commercial-credit-cards.get
+    update: {operationId: getCommercialCreditCards, summary: List commercial credit card products}

@@ -1,0 +1,42 @@
+generated: '2026-07-23'
+method: searched
+source: https://developer.lloydsbanking.com/prod01/lbg/home
+note: >-
+  Halifax's API lifecycle follows the OBIE UK Open Banking standards versioning
+  as operated across the shared Lloyds Banking Group Developer Portal (Lloyds
+  Bank / Bank of Scotland / Halifax brands). Version discipline is set by the
+  OBIE standard and the CMA9 mandate.
+versioning:
+  scheme: uri-path
+  open_data_current: v2.2
+  read_write_current: v3.1
+  detail: >-
+    Open Data reference APIs served at /open-banking/v2.2/*; Read/Write
+    (AIS/PIS/CBPII) served at /open-banking/v3.1/* on api.halifax.co.uk,
+    tracking OBIE Read/Write v3.1.x.
+  standard: https://openbankinguk.github.io/read-write-api-site3/
+deprecation:
+  policy: obie-managed
+  sunset_header: false
+  detail: >-
+    Version deprecation and retirement are coordinated through the OBIE / Open
+    Banking Limited standards process and the CMA9 change calendar; Lloyds
+    Banking Group publishes onboarding/change notices to registered TPPs via the
+    developer portal rather than a public per-endpoint deprecation feed.
+roadmap:
+  url: https://developer.lloydsbanking.com/prod01/lbg/home
+  detail: >-
+    The Lloyds Banking Group Developer Portal publishes an API Catalogue (live
+    and forthcoming APIs) and a Roadmap of short- and medium-term enhancements.
+sla:
+  regime: PSD2 / UK Open Banking availability + performance reporting
+  detail: >-
+    As a CMA9 ASPSP, Halifax publishes dedicated interface availability and
+    performance statistics quarterly under FCA/OBIE service-level requirements.
+status_page: https://developer.lloydsbanking.com/prod01/lbg/lbg-support
+status_note: >-
+  No standalone status.* subdomain confirmed; operational status, incident and
+  availability information is served through the Lloyds Banking Group Developer
+  Portal support area and the regulatory availability reports.
+support: https://developer.lloydsbanking.com/prod01/lbg/lbg-support
+deprecated_operations: []

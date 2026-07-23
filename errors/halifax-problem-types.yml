@@ -1,0 +1,75 @@
+generated: '2026-07-23'
+method: derived
+source: openapi/openbanking-opendata-standard-swagger.json
+enriched_from: https://openbankinguk.github.io/read-write-api-site3/v3.1.11/profiles/read-write-data-api-profile.html
+format: obie
+note: >-
+  HTTP status catalogue derived from the Open Data swagger responses, plus the
+  OBIE UK.OBIE.* error-code registry that applies to the FAPI-secured
+  Read/Write APIs (AIS/PIS/CBPII). Read/Write errors use the OBIE error envelope
+  (Code/Id/Message/Errors[]), not application/problem+json.
+open_data_statuses:
+  - status: 400
+    title: Bad Request
+    description: The request was malformed or a parameter was invalid.
+    source_operations: [getBranches, getAtms, getPersonalCurrentAccounts, getBusinessCurrentAccounts, getUnsecuredSmeLoans, getCommercialCreditCards]
+  - status: 408
+    title: Request Timeout
+    description: The server timed out waiting for the request.
+  - status: 429
+    title: Too Many Requests
+    description: The client has sent too many requests in a given amount of time (rate limited).
+  - status: 500
+    title: Internal Server Error
+    description: An unexpected server error occurred.
+  - status: 503
+    title: Service Unavailable
+    description: The service is temporarily unavailable.
+read_write_error_envelope:
+  fields: [Code, Id, Message, Errors]
+  error_item_fields: [ErrorCode, Message, Path, Url]
+read_write_error_codes:
+  - code: UK.OBIE.Field.Expected
+    meaning: A field that was expected was not present.
+  - code: UK.OBIE.Field.Invalid
+    meaning: A field failed validation (format, range, or enum).
+  - code: UK.OBIE.Field.InvalidDate
+    meaning: A date field was invalid or out of range.
+  - code: UK.OBIE.Field.Missing
+    meaning: A required field was missing from the request.
+  - code: UK.OBIE.Field.Unexpected
+    meaning: An unexpected field was present in the request.
+  - code: UK.OBIE.Header.Invalid
+    meaning: A request header was invalid.
+  - code: UK.OBIE.Header.Missing
+    meaning: A required header (e.g. x-idempotency-key, x-fapi-*) was missing.
+  - code: UK.OBIE.Resource.InvalidConsentStatus
+    meaning: The consent is not in a status that permits the operation.
+  - code: UK.OBIE.Resource.InvalidFormat
+    meaning: The resource identified in the request is in an invalid format.
+  - code: UK.OBIE.Resource.NotFound
+    meaning: The requested resource does not exist.
+  - code: UK.OBIE.Rules.AfterCutOffDateTime
+    meaning: The request was received after the payment cut-off time.
+  - code: UK.OBIE.Rules.DuplicateReference
+    meaning: A duplicate payment reference was detected.
+  - code: UK.OBIE.Rules.FailsControlSum
+    meaning: The control sum does not match the sum of the transactions.
+  - code: UK.OBIE.Signature.Invalid
+    meaning: The detached JWS signature (x-jws-signature) failed validation.
+  - code: UK.OBIE.Signature.Missing
+    meaning: The required x-jws-signature header was not provided.
+  - code: UK.OBIE.Signature.MalformedOrInvalid
+    meaning: The signature was malformed or could not be verified.
+  - code: UK.OBIE.Unsupported.AccountIdentifier
+    meaning: The account identifier scheme is not supported.
+  - code: UK.OBIE.Unsupported.Currency
+    meaning: The requested currency is not supported.
+  - code: UK.OBIE.Unsupported.Frequency
+    meaning: The requested payment frequency is not supported.
+  - code: UK.OBIE.Unsupported.Scheme
+    meaning: The requested scheme is not supported.
+  - code: UK.OBIE.Reauthenticate
+    meaning: The PSU must re-authenticate to continue.
+  - code: UK.OBIE.UnexpectedError
+    meaning: An unexpected error occurred processing the request.

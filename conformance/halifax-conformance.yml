@@ -1,0 +1,45 @@
+generated: '2026-07-23'
+method: searched
+source: https://openbankinguk.github.io/read-write-api-site3/v3.1.11/
+note: >-
+  Standards conformance for Halifax as a CMA9 ASPSP / Lloyds Banking Group
+  brand. Read/Write claims are the OBIE UK Open Banking standard obligations;
+  Open Data claims are derived from the captured swagger.
+standards:
+  - id: uk-open-banking-read-write-v3.1
+    conforms: true
+    evidence: FAPI-secured AIS/PIS/CBPII served per OBIE Read/Write v3.1 profiles.
+  - id: uk-open-banking-open-data-v2.2
+    conforms: true
+    evidence: Live Open Data ATM/branch/product endpoints at api.halifax.co.uk/open-banking/v2.2/*.
+  - id: psd2
+    conforms: true
+    evidence: PSD2 SCA + dedicated interface obligations as a UK ASPSP.
+  - id: fapi-1.0-advanced
+    conforms: true
+    evidence: OBIE Read/Write mandates FAPI 1.0 Advanced security profile.
+  - id: oauth2
+    conforms: true
+    evidence: authorization_code + client_credentials grants for Read/Write consent + data access.
+  - id: oidc
+    conforms: true
+    evidence: OpenID Connect (openid scope) authenticates the PSU in the Read/Write flow.
+  - id: mutual-tls
+    conforms: true
+    evidence: mTLS (tls_client_auth) mandatory on all Read/Write connections; OBIE/eIDAS certificates.
+  - id: message-signing-jws
+    conforms: true
+    evidence: Detached JWS request signing via x-jws-signature (OBIE).
+  - id: eidas
+    conforms: true
+    evidence: OBIE/eIDAS QWAC + QSeal certificates used for transport and signing.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Read/Write uses the OBIE error envelope (Code/Id/Message/Errors[]), not application/problem+json.
+  - id: conditional-requests-rfc7232
+    conforms: true
+    evidence: Open Data GETs honour If-Modified-Since / If-None-Match with ETag / Last-Modified.
+regulatory:
+  regulator: [Financial Conduct Authority (FCA), Prudential Regulation Authority (PRA)]
+  entity: Bank of Scotland plc (trading as Halifax), Lloyds Banking Group
+  regime: UK PSD2 / CMA Open Banking (CMA9 mandated ASPSP)

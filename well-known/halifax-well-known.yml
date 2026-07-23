@@ -1,0 +1,31 @@
+generated: '2026-07-23'
+method: searched
+note: >-
+  Probed the .well-known discovery surface on every apis.yml + OpenAPI host.
+  No machine-readable discovery documents are published. api.halifax.co.uk
+  returns hard 404s; developer.lloydsbanking.com 302-redirects to portal login;
+  www.halifax.co.uk returns a soft-404 (HTTP 200 serving an HTML "Internet
+  Banking - Error" page, not a real document). OIDC discovery for the FAPI
+  Read/Write authorization servers is provisioned per-TPP through the Open
+  Banking Directory and is not anonymously discoverable.
+hosts:
+  - host: https://api.halifax.co.uk
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /open-banking/v3.1/.well-known/openid-configuration, status: 404}
+  - host: https://developer.lloydsbanking.com
+    documents:
+      - {path: /.well-known/security.txt, status: 302, note: redirect to portal, not a document}
+      - {path: /.well-known/openid-configuration, status: 302, note: redirect}
+      - {path: /.well-known/oauth-authorization-server, status: 302, note: redirect}
+      - {path: /.well-known/api-catalog, status: 302, note: redirect}
+  - host: https://www.halifax.co.uk
+    documents:
+      - {path: /.well-known/security.txt, status: 200, note: soft-404 HTML error page, not security.txt}
+      - {path: /.well-known/openid-configuration, status: 200, note: soft-404 HTML error page}
+      - {path: /.well-known/oauth-authorization-server, status: 200, note: soft-404 HTML error page}
+      - {path: /.well-known/api-catalog, status: 200, note: soft-404 HTML error page}
+documents_saved: []

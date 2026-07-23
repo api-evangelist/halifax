@@ -1,0 +1,34 @@
+generated: '2026-07-23'
+method: searched
+source: https://developer.lloydsbanking.com/prod01/lbg/lbg-support/sandbox-guide
+docs: https://developer.lloydsbanking.com/prod01/lbg/get-started
+note: >-
+  Halifax Read/Write APIs are testable through the shared Lloyds Banking Group
+  Sandbox, which replicates production functionality for authorised (and
+  onboarding) Third Party Providers. Open Data APIs are public production
+  endpoints with no separate sandbox. No published magic test values were
+  captured verbatim (the Sandbox is credential-gated per the OB Directory); do
+  not fabricate test PSUs, accounts, or card numbers.
+environments:
+  - name: sandbox
+    purpose: >-
+      Develop and test AIS/PIS/CBPII integrations against Sandbox versions of
+      the Read/Write APIs without impacting live environments.
+    access: >-
+      Free with registration in the Open Banking Directory; grants read/write
+      access to the Sandbox Read/Write APIs.
+    guide: https://developer.lloydsbanking.com/prod01/lbg/lbg-support/sandbox-guide
+    replicates_production: true
+  - name: production
+    purpose: Live AIS/PIS/CBPII once TPP is fully onboarded and certified.
+    access: Requires OB Directory onboarding + OBIE/eIDAS certificates + Lloyds portal enrolment.
+test_data:
+  published_magic_values: false
+  detail: >-
+    Sandbox test PSUs, accounts and payment scenarios are provisioned inside the
+    credential-gated Sandbox rather than published as static magic values;
+    consult the Sandbox Guide after registering.
+open_data_testing:
+  detail: >-
+    Open Data endpoints (e.g. https://api.halifax.co.uk/open-banking/v2.2/atms)
+    are live, public and unauthenticated — callable directly for testing.

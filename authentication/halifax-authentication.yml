@@ -1,0 +1,69 @@
+generated: '2026-07-23'
+method: searched
+source: https://developer.lloydsbanking.com/prod01/lbg/read-write
+docs: https://openbankinguk.github.io/read-write-api-site3/v3.1.11/profiles/read-write-data-api-profile.html
+note: >-
+  Two distinct auth postures. The OBIE Open Data APIs (ATM/branch/product
+  reference data) are PUBLIC and unauthenticated. The OBIE Read/Write APIs
+  (AIS/PIS/CBPII) are FAPI-secured and onboarded through the shared Lloyds
+  Banking Group Developer Portal. No OpenAPI securitySchemes were present in the
+  captured Open Data swagger, so this profile is sourced from the Lloyds portal
+  and the OBIE Read/Write standard rather than derived from a spec.
+summary:
+  types: [none, oauth2, mutualTLS]
+  api_key_in: []
+  oauth2_flows: [authorizationCode, clientCredentials]
+surfaces:
+  - name: OBIE Open Data APIs
+    apis:
+      - halifax-open-data-atm-locator-api
+      - halifax-open-data-branch-locator-api
+      - halifax-open-data-personal-current-accounts-api
+      - halifax-open-data-business-current-accounts-api
+      - halifax-open-data-unsecured-sme-loans-api
+      - halifax-open-data-commercial-credit-cards-api
+    auth: none
+    detail: Public, unauthenticated; TLS 1.2+ only. No credentials required.
+  - name: OBIE Read/Write APIs
+    apis:
+      - halifax-account-transaction-information-api
+      - halifax-payment-initiation-api
+      - halifax-confirmation-of-funds-api
+    auth: fapi
+    detail: >-
+      FAPI 1.0 Advanced. OAuth2/OIDC over mutual-TLS. TPPs onboard via the
+      Open Banking Directory and the Lloyds Banking Group Developer Portal
+      using OBIE/eIDAS (QWAC + QSeal) certificates.
+schemes:
+  - name: OAuth2 (client_credentials)
+    type: oauth2
+    flow: clientCredentials
+    used_for: Creating account-access-consent / payment-consent / funds-confirmation-consent resources.
+    scopes: [accounts, payments, fundsconfirmation]
+    sources: [OBIE Read/Write standard, developer.lloydsbanking.com]
+  - name: OAuth2 (authorization_code)
+    type: oauth2
+    flow: authorizationCode
+    used_for: PSU authorises the consent; grants access + refresh token for data access / payment submission.
+    scopes: [openid, accounts, payments, fundsconfirmation]
+    refresh_tokens: true
+    ciba_decoupled: true
+    sources: [OBIE Read/Write standard, developer.lloydsbanking.com]
+  - name: Mutual TLS
+    type: mutualTLS
+    detail: >-
+      All Read/Write connections require mutual-TLS with an OBIE/eIDAS transport
+      (QWAC) certificate. Lloyds supports tls_client_auth (mTLS client
+      authentication) as an alternative to private_key_jwt client assertion.
+    sources: [developer.lloydsbanking.com]
+  - name: private_key_jwt
+    type: oauth2-client-auth
+    detail: Supported client authentication method (JWS client assertion) alongside tls_client_auth.
+request_signing:
+  header: x-jws-signature
+  detail: Detached JWS signature over the request/response body for payment and consent messages (OBIE message signing).
+required_headers:
+  - x-fapi-interaction-id
+  - x-fapi-auth-date
+  - x-fapi-customer-ip-address
+  - x-idempotency-key

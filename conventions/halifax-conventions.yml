@@ -1,0 +1,73 @@
+generated: '2026-07-23'
+method: searched
+source: https://openbankinguk.github.io/read-write-api-site3/v3.1.11/profiles/read-write-data-api-profile.html
+docs: https://developer.lloydsbanking.com/prod01/lbg/read-write
+note: >-
+  Cross-cutting request/response semantics. The Read/Write conventions are the
+  OBIE UK Open Banking Read/Write standard as implemented by Halifax (a Lloyds
+  Banking Group brand / CMA9 ASPSP). Open Data conventions are derived from the
+  captured swagger.
+authentication:
+  style: fapi
+  detail: OAuth2/OIDC over mutual-TLS with detached JWS request signing (Read/Write); none (Open Data).
+  see: authentication/halifax-authentication.yml
+idempotency:
+  supported: true
+  scope: Read/Write payment and consent POST operations (PIS)
+  header: x-idempotency-key
+  max_length: 40
+  retention: >-
+    ASPSP replays the original response for a repeated x-idempotency-key with an
+    identical request body within the OBIE idempotency window (typically 24h).
+  not_idempotent:
+    - account-access-consent creation (per OBIE profile)
+  detail: >-
+    A unique x-idempotency-key must be sent on payment-order and consent
+    submission requests so a retried request does not create a duplicate
+    payment. Not applicable to the unauthenticated Open Data GETs.
+pagination:
+  style: cursor-hypermedia
+  response_fields:
+    links: [Links.Self, Links.First, Links.Prev, Links.Next, Links.Last]
+    meta: [Meta.TotalPages, Meta.FirstAvailableDateTime, Meta.LastAvailableDateTime]
+  request_params: [page]
+  detail: >-
+    Read/Write collection responses carry a Links block (hypermedia next/prev)
+    and a Meta block with TotalPages. Open Data responses are returned as a
+    single document keyed by a data payload plus meta.
+request_tracing:
+  header: x-fapi-interaction-id
+  detail: >-
+    RFC-style correlation id echoed on every Read/Write request and response
+    for end-to-end tracing between TPP and ASPSP.
+  related_headers: [x-fapi-auth-date, x-fapi-customer-ip-address, x-fapi-customer-last-logged-time]
+versioning:
+  style: uri-path
+  detail: >-
+    Version carried in the URL path (Open Data /open-banking/v2.2/...,
+    Read/Write /open-banking/v3.1/...). See lifecycle/halifax-lifecycle.yml.
+  see: lifecycle/halifax-lifecycle.yml
+error_envelope:
+  format: obie
+  shape:
+    Code: HTTP status code string
+    Id: Unique reference for the error occurrence (correlates to x-fapi-interaction-id)
+    Message: High-level error message
+    Errors:
+      - ErrorCode: UK.OBIE.* namespaced error code
+        Message: Detailed message
+        Path: JSON path to the offending field
+        Url: URL to further information
+  see: errors/halifax-problem-types.yml
+content_negotiation:
+  open_data_media_type: application/prs.openbanking.opendata.v1.3+json
+  read_write_media_type: application/json
+conditional_requests:
+  headers: [If-Modified-Since, If-None-Match]
+  response_headers: [ETag, Last-Modified]
+  detail: Open Data GETs support conditional requests to avoid re-transferring unchanged reference data.
+rate_limit_signaling:
+  detail: >-
+    Open Data responses can return 429 Too Many Requests; Read/Write applies
+    per-TPP throttling governed by the OB Directory. No published quantitative
+    headers captured.

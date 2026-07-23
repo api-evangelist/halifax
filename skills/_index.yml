@@ -1,0 +1,16 @@
+generated: '2026-07-23'
+method: generated
+note: >-
+  Agent Skills grounded in the six public OBIE Open Data operations (operationIds
+  assigned via overlays/halifax-opendata-overlay.yaml). The FAPI Read/Write
+  APIs are not skill-grounded because they require TPP onboarding and are not
+  anonymously callable.
+skills:
+  - file: halifax-find-nearest-atm.md
+    name: Find the nearest Halifax ATM or branch
+    api: openapi/openbanking-opendata-standard-swagger.json
+    operations: [getAtms, getBranches]
+  - file: halifax-compare-account-products.md
+    name: Compare Halifax account and lending products
+    api: openapi/openbanking-opendata-standard-swagger.json
+    operations: [getPersonalCurrentAccounts, getBusinessCurrentAccounts, getUnsecuredSmeLoans, getCommercialCreditCards]

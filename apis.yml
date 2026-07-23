@@ -32,7 +32,7 @@ tags:
 - Account Information
 - Open Data
 created: '2026-07-23'
-modified: '2026-07-23'
+modified: '2026-07-24'
 specificationVersion: '0.19'
 apis:
 - aid: halifax:halifax-open-data-atm-locator-api
@@ -209,6 +209,8 @@ apis:
   - type: APIReference
     url: https://openbankinguk.github.io/read-write-api-site3/v3.1.11/profiles/confirmation-of-funds-api-profile.html
 common:
+- type: DomainSecurity
+  url: security/halifax-domain-security.yml
 - type: Website
   url: https://www.halifax.co.uk/
 - type: DeveloperPortal
@@ -223,6 +225,36 @@ common:
   url: https://www.halifax.co.uk/aboutonline/legal-information.html
 - type: PrivacyPolicy
   url: https://www.halifax.co.uk/aboutonline/security-and-privacy.html
+- type: GettingStarted
+  url: https://developer.lloydsbanking.com/prod01/lbg/get-started
+- type: Roadmap
+  url: https://developer.lloydsbanking.com/prod01/lbg/home
+- type: Authentication
+  url: authentication/halifax-authentication.yml
+- type: OAuthScopes
+  url: scopes/halifax-scopes.yml
+- type: Conventions
+  url: conventions/halifax-conventions.yml
+- type: Idempotency
+  url: conventions/halifax-conventions.yml
+- type: ErrorCatalog
+  url: errors/halifax-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/halifax-lifecycle.yml
+- type: Conformance
+  url: conformance/halifax-conformance.yml
+- type: Compliance
+  url: conformance/halifax-conformance.yml
+- type: Sandbox
+  url: sandbox/halifax-sandbox.yml
+- type: MCPServer
+  url: mcp/halifax-mcp.yml
+- type: Overlay
+  url: overlays/halifax-opendata-overlay.yaml
+- type: LLMsTxt
+  url: llms/halifax-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
