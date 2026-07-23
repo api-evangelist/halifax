@@ -1,0 +1,93 @@
+aid: halifax
+name: Halifax
+review:
+  question: >-
+    Does Halifax expose a public developer/Open Banking API surface, and can a
+    live Open Data endpoint be confirmed?
+  answer: true
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    Halifax is a UK Open Banking CMA9 mandated ASPSP and a trading division of
+    Bank of Scotland plc (Lloyds Banking Group). It exposes the standard OBIE
+    two-surface API model. The PUBLIC, unauthenticated Open Data APIs were
+    CONFIRMED LIVE on 2026-07-23: HTTP 200 with JSON payloads at
+    https://api.halifax.co.uk/open-banking/v2.2/ for atms (773 ATMs, branded
+    "Halifax"), branches, personal-current-accounts, business-current-accounts,
+    unsecured-sme-loans, and commercial-credit-cards. The v2.3 and v3.0 Open
+    Data paths returned 404 — the live Open Data version for Halifax is v2.2.
+    The FAPI-secured OBIE Read/Write APIs (Account & Transaction Information /
+    AIS, Payment Initiation / PIS, Confirmation of Funds / CBPII) are documented
+    through the shared Lloyds Banking Group Developer Portal
+    (developer.lloydsbanking.com), which serves the Lloyds Bank, Halifax, and
+    Bank of Scotland brands together. Read/Write endpoints are secured with
+    FAPI-grade OAuth2/OIDC, PSD2 strong customer authentication, mutual-TLS, and
+    OBIE/eIDAS certificates and require TPP onboarding; they were NOT probed
+    (authentication-gated) and their base paths follow the OBIE Read/Write v3.1
+    standard on the confirmed api.halifax.co.uk host. The brand-specific
+    developer host developer.halifax.co.uk did not resolve (connection failed);
+    the canonical developer portal is developer.lloydsbanking.com.
+  specProvenance: |
+    The harvested OpenAPI at openapi/openbanking-opendata-standard-swagger.json
+    is the SHARED OBIE Open Data standard (Swagger 2.0, info.version v1.3, 6
+    paths), taken verbatim from
+    github.com/OpenBankingUK/opendata-api-spec-compiled (opendata-swagger.json).
+    It is the industry-standard Open Data contract that Halifax's live v2.2
+    endpoints conform to — it is NOT a Halifax-proprietary specification. No
+    bank-proprietary OpenAPI/Swagger was found publicly downloadable for
+    Halifax. The Read/Write APIs conform to the OBIE Read/Write standard
+    (github.com/OpenBankingUK/read-write-api-specs); those specs were referenced
+    but not vendored into this repo.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.halifax.co.uk/open-banking/v2.2
+      documented: true
+      confirmedLive: true
+      note: >-
+        Public OBIE Open Data. Confirmed HTTP 200 + application/json with the
+        Accept header application/prs.openbanking.opendata.v2.2+json.
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.halifax.co.uk/open-banking/v3.1
+      documented: true
+      confirmedLive: false
+      note: >-
+        OBIE Read/Write (AIS/PIS/CBPII). FAPI-secured (OAuth2/OIDC, PSD2 SCA,
+        mTLS, OBIE/eIDAS certs); authentication-gated, not independently probed.
+  authModel:
+    openData: none (public, unauthenticated, Open Licence)
+    readWrite: FAPI OAuth2/OIDC + PSD2 SCA + mutual-TLS + OBIE/eIDAS certificates
+  endpointsConfirmedLive:
+    - GET https://api.halifax.co.uk/open-banking/v2.2/atms
+    - GET https://api.halifax.co.uk/open-banking/v2.2/branches
+    - GET https://api.halifax.co.uk/open-banking/v2.2/personal-current-accounts
+    - GET https://api.halifax.co.uk/open-banking/v2.2/business-current-accounts
+    - GET https://api.halifax.co.uk/open-banking/v2.2/unsecured-sme-loans
+    - GET https://api.halifax.co.uk/open-banking/v2.2/commercial-credit-cards
+sources:
+  - url: https://developer.lloydsbanking.com/
+    type: DeveloperPortal
+    status: 200
+    note: Shared Lloyds Banking Group Developer Portal (Lloyds/Halifax/Bank of Scotland).
+  - url: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
+    type: Documentation
+    status: 200
+    note: Halifax Open Data API listing.
+  - url: https://developer.lloydsbanking.com/prod01/lbg/read-write
+    type: Documentation
+    status: 200
+    note: Read/Write (AIS/PIS/CBPII) onboarding documentation.
+  - url: https://api.halifax.co.uk/open-banking/v2.2/atms
+    type: APIReference
+    status: 200
+    note: Confirmed live Open Data ATM endpoint, JSON, 773 results branded "Halifax".
+  - url: https://github.com/OpenBankingUK/opendata-api-spec-compiled
+    type: OpenAPI
+    status: 200
+    note: Source of the harvested shared OBIE Open Data standard swagger (v1.3).
+  - url: https://www.halifax.co.uk/
+    type: Website
+    status: 200
+    note: Halifax retail banking website.
