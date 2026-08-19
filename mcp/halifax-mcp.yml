@@ -2,33 +2,37 @@ generated: '2026-07-23'
 method: derived
 status: candidate
 source: openapi/openbanking-opendata-standard-swagger.json (operationIds via overlays/halifax-opendata-overlay.yaml)
-note: >-
-  No official Halifax / Lloyds Banking Group MCP server exists. This is a
-  candidate tool surface derived from the six public, unauthenticated OBIE Open
-  Data operations — the only Halifax surface an agent can call without TPP
-  onboarding. The FAPI-secured Read/Write APIs (AIS/PIS/CBPII) are intentionally
-  excluded: they require OB Directory onboarding, mTLS and eIDAS certificates
-  and are not agent-callable anonymously.
+note: 'No official Halifax / Lloyds Banking Group MCP server exists. This is a candidate tool surface
+  derived from the six public, unauthenticated OBIE Open Data operations — the only Halifax surface an
+  agent can call without TPP onboarding. The FAPI-secured Read/Write APIs (AIS/PIS/CBPII) are intentionally
+  excluded: they require OB Directory onboarding, mTLS and eIDAS certificates and are not agent-callable
+  anonymously.'
 server:
   name: halifax-open-data
   transport: http
   url: null
 tools:
-  - name: list_branches
-    description: List all Halifax branches in the UK with location and service details.
-    source_operation: openapi/openbanking-opendata-standard-swagger.json#getBranches
-  - name: list_atms
-    description: List all Halifax ATMs (cashpoints) in the UK with location and accessibility details.
-    source_operation: openapi/openbanking-opendata-standard-swagger.json#getAtms
-  - name: list_personal_current_accounts
-    description: List Halifax personal current account products and their reference data.
-    source_operation: openapi/openbanking-opendata-standard-swagger.json#getPersonalCurrentAccounts
-  - name: list_business_current_accounts
-    description: List Halifax business current account products and their reference data.
-    source_operation: openapi/openbanking-opendata-standard-swagger.json#getBusinessCurrentAccounts
-  - name: list_unsecured_sme_loans
-    description: List Halifax unsecured SME loan products and their reference data.
-    source_operation: openapi/openbanking-opendata-standard-swagger.json#getUnsecuredSmeLoans
-  - name: list_commercial_credit_cards
-    description: List Halifax commercial credit card products and their reference data.
-    source_operation: openapi/openbanking-opendata-standard-swagger.json#getCommercialCreditCards
+- name: list_branches
+  description: List all Halifax branches in the UK with location and service details.
+  source_operation: openapi/openbanking-opendata-standard-swagger.json#getBranches
+- name: list_atms
+  description: List all Halifax ATMs (cashpoints) in the UK with location and accessibility details.
+  source_operation: openapi/openbanking-opendata-standard-swagger.json#getAtms
+- name: list_personal_current_accounts
+  description: List Halifax personal current account products and their reference data.
+  source_operation: openapi/openbanking-opendata-standard-swagger.json#getPersonalCurrentAccounts
+- name: list_business_current_accounts
+  description: List Halifax business current account products and their reference data.
+  source_operation: openapi/openbanking-opendata-standard-swagger.json#getBusinessCurrentAccounts
+- name: list_unsecured_sme_loans
+  description: List Halifax unsecured SME loan products and their reference data.
+  source_operation: openapi/openbanking-opendata-standard-swagger.json#getUnsecuredSmeLoans
+- name: list_commercial_credit_cards
+  description: List Halifax commercial credit card products and their reference data.
+  source_operation: openapi/openbanking-opendata-standard-swagger.json#getCommercialCreditCards
+deployment:
+  mode: none
+  verified: derived
+  tools: 6
+  checked: '2026-08-12'
+  source: catalog MCP census
