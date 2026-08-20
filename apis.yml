@@ -21,6 +21,17 @@ description: >-
   authentication, mutual-TLS, and OBIE/eIDAS certificates.
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
+- Financial-Services
+- Banking
+- Open Banking
+- PSD2
+- OBIE
+- CMA9
+- United Kingdom
+- Payments
+- Account Information
+- Open Data
+tags_raw:
 - Financial Services
 - Banking
 - Open Banking
@@ -84,6 +95,10 @@ apis:
   tags:
   - Open Data
   - Personal Current Accounts
+  - Product
+  tags_raw:
+  - Open Data
+  - Personal Current Accounts
   - Products
   properties:
   - type: OpenAPI
@@ -101,6 +116,10 @@ apis:
   humanURL: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
   baseURL: https://api.halifax.co.uk/open-banking/v2.2/business-current-accounts
   tags:
+  - Open Data
+  - Business Current Accounts
+  - Product
+  tags_raw:
   - Open Data
   - Business Current Accounts
   - Products
@@ -121,6 +140,10 @@ apis:
   tags:
   - Open Data
   - SME Loans
+  - Product
+  tags_raw:
+  - Open Data
+  - SME Loans
   - Products
   properties:
   - type: OpenAPI
@@ -138,6 +161,10 @@ apis:
   humanURL: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
   baseURL: https://api.halifax.co.uk/open-banking/v2.2/commercial-credit-cards
   tags:
+  - Open Data
+  - Commercial Credit Cards
+  - Product
+  tags_raw:
   - Open Data
   - Commercial Credit Cards
   - Products
