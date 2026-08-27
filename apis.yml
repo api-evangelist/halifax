@@ -46,143 +46,13 @@ created: '2026-07-23'
 modified: '2026-07-24'
 specificationVersion: '0.23'
 apis:
-- aid: halifax:halifax-open-data-atm-locator-api
-  name: Halifax Open Data ATM Locator API
-  description: >-
-    Public, unauthenticated OBIE Open Data API returning the location and
-    details of every Halifax cashpoint (ATM) in the UK. Confirmed live (HTTP
-    200, JSON) at the v2.2 base.
-  humanURL: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
-  baseURL: https://api.halifax.co.uk/open-banking/v2.2/atms
-  tags:
-  - Open Data
-  - ATM
-  - Locator
-  properties:
-  - type: OpenAPI
-    url: openapi/openbanking-opendata-standard-swagger.json
-  - type: Documentation
-    url: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
-  - type: APIReference
-    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atm-locator/atm-locator.html
-- aid: halifax:halifax-open-data-branch-locator-api
-  name: Halifax Open Data Branch Locator API
-  description: >-
-    Public, unauthenticated OBIE Open Data API returning a directory of all
-    Halifax branches in the UK. Confirmed live (HTTP 200, JSON) at the v2.2
-    base.
-  humanURL: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
-  baseURL: https://api.halifax.co.uk/open-banking/v2.2/branches
-  tags:
-  - Open Data
-  - Branch
-  - Locator
-  properties:
-  - type: OpenAPI
-    url: openapi/openbanking-opendata-standard-swagger.json
-  - type: Documentation
-    url: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
-  - type: APIReference
-    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/branchlocator/branch-locator.html
-- aid: halifax:halifax-open-data-personal-current-accounts-api
-  name: Halifax Open Data Personal Current Accounts API
-  description: >-
-    Public, unauthenticated OBIE Open Data API publishing personal current
-    account product reference data. Confirmed live (HTTP 200, JSON) at the v2.2
-    base.
-  humanURL: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
-  baseURL: https://api.halifax.co.uk/open-banking/v2.2/personal-current-accounts
-  tags:
-  - Open Data
-  - Personal Current Accounts
-  - Product
-  tags_raw:
-  - Open Data
-  - Personal Current Accounts
-  - Products
-  properties:
-  - type: OpenAPI
-    url: openapi/openbanking-opendata-standard-swagger.json
-  - type: Documentation
-    url: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
-  - type: APIReference
-    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/pca/pca.html
-- aid: halifax:halifax-open-data-business-current-accounts-api
-  name: Halifax Open Data Business Current Accounts API
-  description: >-
-    Public, unauthenticated OBIE Open Data API publishing business current
-    account product reference data. Confirmed live (HTTP 200, JSON) at the v2.2
-    base.
-  humanURL: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
-  baseURL: https://api.halifax.co.uk/open-banking/v2.2/business-current-accounts
-  tags:
-  - Open Data
-  - Business Current Accounts
-  - Product
-  tags_raw:
-  - Open Data
-  - Business Current Accounts
-  - Products
-  properties:
-  - type: OpenAPI
-    url: openapi/openbanking-opendata-standard-swagger.json
-  - type: Documentation
-    url: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
-  - type: APIReference
-    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/bca/bca.html
-- aid: halifax:halifax-open-data-unsecured-sme-loans-api
-  name: Halifax Open Data Unsecured SME Loans API
-  description: >-
-    Public, unauthenticated OBIE Open Data API publishing unsecured SME loan
-    product reference data. Confirmed live (HTTP 200, JSON) at the v2.2 base.
-  humanURL: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
-  baseURL: https://api.halifax.co.uk/open-banking/v2.2/unsecured-sme-loans
-  tags:
-  - Open Data
-  - SME Loans
-  - Product
-  tags_raw:
-  - Open Data
-  - SME Loans
-  - Products
-  properties:
-  - type: OpenAPI
-    url: openapi/openbanking-opendata-standard-swagger.json
-  - type: Documentation
-    url: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
-  - type: APIReference
-    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/unsecuredsmeloans/unsecured-sme-loans.html
-- aid: halifax:halifax-open-data-commercial-credit-cards-api
-  name: Halifax Open Data Commercial Credit Cards API
-  description: >-
-    Public, unauthenticated OBIE Open Data API publishing commercial credit
-    card product reference data. Confirmed live (HTTP 200, JSON) at the v2.2
-    base.
-  humanURL: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
-  baseURL: https://api.halifax.co.uk/open-banking/v2.2/commercial-credit-cards
-  tags:
-  - Open Data
-  - Commercial Credit Cards
-  - Product
-  tags_raw:
-  - Open Data
-  - Commercial Credit Cards
-  - Products
-  properties:
-  - type: OpenAPI
-    url: openapi/openbanking-opendata-standard-swagger.json
-  - type: Documentation
-    url: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
-  - type: APIReference
-    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/ccc/ccc.html
 - aid: halifax:halifax-account-transaction-information-api
   name: Halifax Account and Transaction Information API (AIS)
   description: >-
-    OBIE Read/Write Account and Transaction Information (AIS) API for
-    authorised AISPs. FAPI-secured (OAuth2/OIDC, PSD2 SCA, mTLS, OBIE/eIDAS
-    certificates); onboarded via the Lloyds Banking Group Developer Portal.
-    Base path follows the OBIE Read/Write v3.1 standard on the confirmed
-    api.halifax.co.uk host; not independently verified (authentication-gated).
+    OBIE Read/Write Account and Transaction Information (AIS) API for authorised AISPs. FAPI-secured (OAuth2/OIDC,
+    PSD2 SCA, mTLS, OBIE/eIDAS certificates); onboarded via the Lloyds Banking Group Developer Portal.
+    Base path follows the OBIE Read/Write v3.1 standard on the confirmed api.halifax.co.uk host; not independently
+    verified (authentication-gated).
   humanURL: https://developer.lloydsbanking.com/prod01/lbg/read-write
   baseURL: https://api.halifax.co.uk/open-banking/v3.1/aisp
   tags:
@@ -194,15 +64,15 @@ apis:
   - type: Documentation
     url: https://developer.lloydsbanking.com/prod01/lbg/read-write
   - type: APIReference
-    url: https://openbankinguk.github.io/read-write-api-site3/v3.1.11/profiles/account-and-transaction-api-profile.html
+    url: >-
+      https://openbankinguk.github.io/read-write-api-site3/v3.1.11/profiles/account-and-transaction-api-profile.html
 - aid: halifax:halifax-payment-initiation-api
   name: Halifax Payment Initiation API (PIS)
   description: >-
-    OBIE Read/Write Payment Initiation (PIS) API for authorised PISPs.
-    FAPI-secured (OAuth2/OIDC, PSD2 SCA, mTLS, OBIE/eIDAS certificates);
-    onboarded via the Lloyds Banking Group Developer Portal. Base path follows
-    the OBIE Read/Write v3.1 standard on the confirmed api.halifax.co.uk host;
-    not independently verified (authentication-gated).
+    OBIE Read/Write Payment Initiation (PIS) API for authorised PISPs. FAPI-secured (OAuth2/OIDC, PSD2
+    SCA, mTLS, OBIE/eIDAS certificates); onboarded via the Lloyds Banking Group Developer Portal. Base
+    path follows the OBIE Read/Write v3.1 standard on the confirmed api.halifax.co.uk host; not independently
+    verified (authentication-gated).
   humanURL: https://developer.lloydsbanking.com/prod01/lbg/read-write
   baseURL: https://api.halifax.co.uk/open-banking/v3.1/pisp
   tags:
@@ -214,15 +84,15 @@ apis:
   - type: Documentation
     url: https://developer.lloydsbanking.com/prod01/lbg/read-write
   - type: APIReference
-    url: https://openbankinguk.github.io/read-write-api-site3/v3.1.11/profiles/payment-initiation-api-profile.html
+    url: >-
+      https://openbankinguk.github.io/read-write-api-site3/v3.1.11/profiles/payment-initiation-api-profile.html
 - aid: halifax:halifax-confirmation-of-funds-api
   name: Halifax Confirmation of Funds API (CBPII)
   description: >-
-    OBIE Read/Write Confirmation of Funds (CBPII) API for authorised CBPIIs.
-    FAPI-secured (OAuth2/OIDC, PSD2 SCA, mTLS, OBIE/eIDAS certificates);
-    onboarded via the Lloyds Banking Group Developer Portal. Base path follows
-    the OBIE Read/Write v3.1 standard on the confirmed api.halifax.co.uk host;
-    not independently verified (authentication-gated).
+    OBIE Read/Write Confirmation of Funds (CBPII) API for authorised CBPIIs. FAPI-secured (OAuth2/OIDC,
+    PSD2 SCA, mTLS, OBIE/eIDAS certificates); onboarded via the Lloyds Banking Group Developer Portal.
+    Base path follows the OBIE Read/Write v3.1 standard on the confirmed api.halifax.co.uk host; not independently
+    verified (authentication-gated).
   humanURL: https://developer.lloydsbanking.com/prod01/lbg/read-write
   baseURL: https://api.halifax.co.uk/open-banking/v3.1/cbpii
   tags:
@@ -234,7 +104,170 @@ apis:
   - type: Documentation
     url: https://developer.lloydsbanking.com/prod01/lbg/read-write
   - type: APIReference
-    url: https://openbankinguk.github.io/read-write-api-site3/v3.1.11/profiles/confirmation-of-funds-api-profile.html
+    url: >-
+      https://openbankinguk.github.io/read-write-api-site3/v3.1.11/profiles/confirmation-of-funds-api-profile.html
+- aid: halifax:halifax-atm-api
+  name: Halifax ATM API
+  description: Endpoint for getting ATM data
+  humanURL: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
+  baseURL: https://api.halifax.co.uk/open-banking/v2.2/atms
+  tags:
+  - ATM
+  properties:
+  - type: OpenAPI
+    url: openapi/halifax-atm-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atm-locator/atm-locator.html
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/branchlocator/branch-locator.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/pca/pca.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/bca/bca.html
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/unsecuredsmeloans/unsecured-sme-loans.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/ccc/ccc.html
+- aid: halifax:halifax-bca-api
+  name: Halifax BCA API
+  description: Endpoint for getting Business Current Account data
+  humanURL: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
+  baseURL: https://api.halifax.co.uk/open-banking/v2.2/atms
+  tags:
+  - BCA
+  properties:
+  - type: OpenAPI
+    url: openapi/halifax-bca-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atm-locator/atm-locator.html
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/branchlocator/branch-locator.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/pca/pca.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/bca/bca.html
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/unsecuredsmeloans/unsecured-sme-loans.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/ccc/ccc.html
+- aid: halifax:halifax-branch-api
+  name: Halifax Branch API
+  description: Endpoint for getting Branch data
+  humanURL: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
+  baseURL: https://api.halifax.co.uk/open-banking/v2.2/atms
+  tags:
+  - Branch
+  properties:
+  - type: OpenAPI
+    url: openapi/halifax-branch-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atm-locator/atm-locator.html
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/branchlocator/branch-locator.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/pca/pca.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/bca/bca.html
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/unsecuredsmeloans/unsecured-sme-loans.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/ccc/ccc.html
+- aid: halifax:halifax-ccc-api
+  name: Halifax CCC API
+  description: Endpoint for getting Commercial Credit Card data
+  humanURL: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
+  baseURL: https://api.halifax.co.uk/open-banking/v2.2/atms
+  tags:
+  - CCC
+  properties:
+  - type: OpenAPI
+    url: openapi/halifax-ccc-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atm-locator/atm-locator.html
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/branchlocator/branch-locator.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/pca/pca.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/bca/bca.html
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/unsecuredsmeloans/unsecured-sme-loans.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/ccc/ccc.html
+- aid: halifax:halifax-pca-api
+  name: Halifax PCA API
+  description: Endpoint for getting Personal Current Account data
+  humanURL: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
+  baseURL: https://api.halifax.co.uk/open-banking/v2.2/atms
+  tags:
+  - PCA
+  properties:
+  - type: OpenAPI
+    url: openapi/halifax-pca-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atm-locator/atm-locator.html
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/branchlocator/branch-locator.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/pca/pca.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/bca/bca.html
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/unsecuredsmeloans/unsecured-sme-loans.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/ccc/ccc.html
+- aid: halifax:halifax-sme-api
+  name: Halifax SME API
+  description: Endpoint for getting Unsecured SME Loan data
+  humanURL: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
+  baseURL: https://api.halifax.co.uk/open-banking/v2.2/atms
+  tags:
+  - SME
+  properties:
+  - type: OpenAPI
+    url: openapi/halifax-sme-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atm-locator/atm-locator.html
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/branchlocator/branch-locator.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/pca/pca.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/bca/bca.html
+  - type: APIReference
+    url: >-
+      https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/unsecuredsmeloans/unsecured-sme-loans.html
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/ccc/ccc.html
 common:
 - type: DomainSecurity
   url: security/halifax-domain-security.yml
