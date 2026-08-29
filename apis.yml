@@ -281,6 +281,9 @@ apis:
   - type: APIReference
     url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/ccc/ccc.html
 common:
+- type: CapabilityMap
+  url: capabilities/halifax-capability-edges.yml
+  name: Halifax Business Capability Map
 - type: DomainSecurity
   url: security/halifax-domain-security.yml
 - type: Website

@@ -1,0 +1,33 @@
+slug: halifax
+provider: Halifax
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: ATM
+  spec_file: halifax-atm-api-openapi.yml
+  capability_id: BC-1300.50
+  capability_id_l1: BC-1300
+  capability_name: Banking Channels Management
+  confidence: 0.75
+  evidence: 'openapi title: Open Data ATM API; GET /atms'
+  reason: Publishes the bank's ATM estate data — ATM is explicitly a banking channel, so this realises
+    Banking Channels Management. Open-data publication nature adds slight ambiguity.
+- tag: Branch
+  spec_file: halifax-branch-api-openapi.yml
+  capability_id: BC-1300.50
+  capability_id_l1: BC-1300
+  capability_name: Banking Channels Management
+  confidence: 0.75
+  evidence: 'openapi title: Open Data Branch API; GET /branches'
+  reason: Exposes branch network/location data, which is branch channel operations information. Mapped
+    to Banking Channels Management.
