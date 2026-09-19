@@ -105,6 +105,11 @@ apis:
   tags:
   - Open Banking
   - Payment Initiation
+  - PI
+  - Read/Write
+  tags_raw:
+  - Open Banking
+  - Payment Initiation
   - PIS
   - Read/Write
   properties:
