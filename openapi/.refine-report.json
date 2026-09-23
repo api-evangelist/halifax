@@ -1,0 +1,30 @@
+{
+  "provider": "halifax",
+  "sources": [
+    "_original/openbanking-opendata-standard-swagger.json"
+  ],
+  "outputs": [
+    "halifax-atm-api-openapi.yml",
+    "halifax-bca-api-openapi.yml",
+    "halifax-branch-api-openapi.yml",
+    "halifax-ccc-api-openapi.yml",
+    "halifax-pca-api-openapi.yml",
+    "halifax-sme-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "openbanking-opendata-standard-swagger.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "halifax-atm-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "halifax-bca-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "halifax-branch-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "halifax-ccc-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "halifax-pca-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "halifax-sme-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}
