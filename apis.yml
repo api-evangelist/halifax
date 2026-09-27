@@ -48,7 +48,7 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
-- Financial-Services
+- Financial Services
 - Banking
 - Open Banking
 - PSD2
@@ -69,6 +69,7 @@ tags_raw:
 - Payments
 - Account Information
 - Open Data
+- Financial-Services
 created: '2026-07-23'
 modified: '2026-07-24'
 specificationVersion: '0.23'
@@ -279,6 +280,8 @@ apis:
   humanURL: https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax
   baseURL: https://api.halifax.co.uk/open-banking/v2.2/atms
   tags:
+  - Small Business
+  tags_raw:
   - SME
   properties:
   - type: OpenAPI
