@@ -1,4 +1,4 @@
-# Halifax (halifax)
+# Halifax
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,212 +64,122 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Halifax is a major British high-street banking brand serving personal and business customers with current accounts, savings, mortgages, credit cards, loans, and insurance. It operates as a trading division of Bank of Scotland plc, a wholly owned subsidiary of Lloyds Banking Group, and is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the PRA. As one of the UK Open Banking CMA9 mandated ASPSPs, Halifax publishes the full Open Banking Implementation Entity (OBIE) API surface — public Open Data APIs plus the FAPI-secured Read/Write APIs for Account and Transaction Information, Payment Initiation, and Confirmation of Funds.
+Halifax is a major British high-street banking brand serving personal and business customers with current accounts, savings, mortgages, credit cards, loans, and insurance. It operates as a trading division of Bank of Scotland plc, a wholly owned subsidiary of Lloyds Banking Group, and is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the PRA. As one of the UK Open Banking CMA9 mandated ASPSPs, Halifax publishes the full Open Banking Implementation Entity (OBIE) API surface: a set of PUBLIC, unauthenticated Open Data APIs (ATM and branch locators plus personal current account, business current account, unsecured SME loan, and commercial credit card product reference data) served live at api.halifax.co.uk, and the FAPI-secured OBIE Read/Write APIs for Account and Transaction Information (AIS), Payment Initiation (PIS), and Confirmation of Funds (CBPII). Read/Write access is delivered through the shared Lloyds Banking Group Developer Portal that also covers the Lloyds Bank and Bank of Scotland brands, secured with OAuth2/OIDC, PSD2 strong customer authentication, mutual-TLS, and OBIE/eIDAS certificates.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/halifax/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/halifax/refs/heads/main/apis.yml)
+**Areas:** Financial Services · Banking · Open Banking · PSD2 · OBIE · CMA9 · United Kingdom · Payments · Account Information · Open Data
 
-## Tags
+## Halifax on APIs.io
 
-- Financial Services
-- Banking
-- Open Banking
-- PSD2
-- OBIE
-- CMA9
-- United Kingdom
-- Payments
-- Account Information
-- Open Data
+Everything profiled for Halifax is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/halifax/](https://apis.io/providers/halifax/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (9)
 
-- **Created:** 2026-07-23
-- **Modified:** 2026-07-23
+- [Halifax Account and Transaction Information API (AIS)](https://apis.io/apis/halifax/halifax-account-transaction-information-api/) — OBIE Read/Write Account and Transaction Information (AIS) API for authorised AISPs. FAPI-secured (OAuth2/OIDC, PSD2 SCA, mTLS, OBIE/eIDAS certificates);…
+- [Halifax Payment Initiation API (PIS)](https://apis.io/apis/halifax/halifax-payment-initiation-api/) — OBIE Read/Write Payment Initiation (PIS) API for authorised PISPs. FAPI-secured (OAuth2/OIDC, PSD2 SCA, mTLS, OBIE/eIDAS certificates); onboarded via the…
+- [Halifax Confirmation of Funds API (CBPII)](https://apis.io/apis/halifax/halifax-confirmation-of-funds-api/) — OBIE Read/Write Confirmation of Funds (CBPII) API for authorised CBPIIs. FAPI-secured (OAuth2/OIDC, PSD2 SCA, mTLS, OBIE/eIDAS certificates); onboarded via…
+- [Halifax ATM API](https://apis.io/apis/halifax/halifax-atm-api/) — Endpoint for getting ATM data
+- [Halifax BCA API](https://apis.io/apis/halifax/halifax-bca-api/) — Endpoint for getting Business Current Account data
+- [Halifax Branch API](https://apis.io/apis/halifax/halifax-branch-api/) — Endpoint for getting Branch data
+- [Halifax CCC API](https://apis.io/apis/halifax/halifax-ccc-api/) — Endpoint for getting Commercial Credit Card data
+- [Halifax PCA API](https://apis.io/apis/halifax/halifax-pca-api/) — Endpoint for getting Personal Current Account data
+- [Halifax SME API](https://apis.io/apis/halifax/halifax-sme-api/) — Endpoint for getting Unsecured SME Loan data
 
-## APIs
+### Published properties
 
-### Halifax Open Data ATM Locator API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Public, unauthenticated OBIE Open Data API returning the location and details of every Halifax cashpoint (ATM) in the UK. Confirmed live (HTTP 200, JSON).
+#### MCP servers (1)
 
-- **Human URL:** [https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax](https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax)
-- **Base URL:** `https://api.halifax.co.uk/open-banking/v2.2/atms`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [halifax-open-data](https://apis.io/servers/halifax/halifax-open-data/)
 
-- Open Data
-- ATM
-- Locator
+#### Collections (1)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [OpenAPI](openapi/openbanking-opendata-standard-swagger.json) — shared OBIE Open Data standard (not a bank-proprietary contract)
-- [Documentation](https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax)
-- [API Reference](https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atm-locator/atm-locator.html)
+- [Open Data API](https://apis.io/collections/halifax/open-openbanking-opendata-standard-swagger/)
 
-### Halifax Open Data Branch Locator API
+#### Overlays (1)
 
-Public, unauthenticated OBIE Open Data API returning a directory of all Halifax branches in the UK. Confirmed live (HTTP 200, JSON).
+OpenAPI overlays, including conversational phrasing for each operation.
 
-- **Human URL:** [https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax](https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax)
-- **Base URL:** `https://api.halifax.co.uk/open-banking/v2.2/branches`
+- [Halifax Opendata Overlay](https://apis.io/overlays/halifax/halifax-opendata-overlay/)
 
-#### Tags
+#### Security (2)
 
-- Open Data
-- Branch
-- Locator
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Halifax Authentication](https://apis.io/security/halifax/halifax-authentication/)
+- [Halifax Domain Security](https://apis.io/security/halifax/halifax-domain-security/)
 
-- [OpenAPI](openapi/openbanking-opendata-standard-swagger.json) — shared OBIE Open Data standard
-- [Documentation](https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax)
-- [API Reference](https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/branchlocator/branch-locator.html)
+#### OAuth scopes (1)
 
-### Halifax Open Data Personal Current Accounts API
+The permissions the API asks for.
 
-Public, unauthenticated OBIE Open Data API publishing personal current account product reference data. Confirmed live (HTTP 200, JSON).
+- [Halifax Scopes](https://apis.io/scopes/halifax/halifax-scopes/)
 
-- **Human URL:** [https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax](https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax)
-- **Base URL:** `https://api.halifax.co.uk/open-banking/v2.2/personal-current-accounts`
+## Where to find this API
 
-#### Tags
-
-- Open Data
-- Personal Current Accounts
-- Products
-
-#### Properties
-
-- [OpenAPI](openapi/openbanking-opendata-standard-swagger.json) — shared OBIE Open Data standard
-- [Documentation](https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax)
-- [API Reference](https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/pca/pca.html)
-
-### Halifax Open Data Business Current Accounts API
-
-Public, unauthenticated OBIE Open Data API publishing business current account product reference data. Confirmed live (HTTP 200, JSON).
-
-- **Human URL:** [https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax](https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax)
-- **Base URL:** `https://api.halifax.co.uk/open-banking/v2.2/business-current-accounts`
-
-#### Tags
-
-- Open Data
-- Business Current Accounts
-- Products
-
-#### Properties
-
-- [OpenAPI](openapi/openbanking-opendata-standard-swagger.json) — shared OBIE Open Data standard
-- [Documentation](https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax)
-- [API Reference](https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/bca/bca.html)
-
-### Halifax Open Data Unsecured SME Loans API
-
-Public, unauthenticated OBIE Open Data API publishing unsecured SME loan product reference data. Confirmed live (HTTP 200, JSON).
-
-- **Human URL:** [https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax](https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax)
-- **Base URL:** `https://api.halifax.co.uk/open-banking/v2.2/unsecured-sme-loans`
-
-#### Tags
-
-- Open Data
-- SME Loans
-- Products
-
-#### Properties
-
-- [OpenAPI](openapi/openbanking-opendata-standard-swagger.json) — shared OBIE Open Data standard
-- [Documentation](https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax)
-- [API Reference](https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/unsecuredsmeloans/unsecured-sme-loans.html)
-
-### Halifax Open Data Commercial Credit Cards API
-
-Public, unauthenticated OBIE Open Data API publishing commercial credit card product reference data. Confirmed live (HTTP 200, JSON).
-
-- **Human URL:** [https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax](https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax)
-- **Base URL:** `https://api.halifax.co.uk/open-banking/v2.2/commercial-credit-cards`
-
-#### Tags
-
-- Open Data
-- Commercial Credit Cards
-- Products
-
-#### Properties
-
-- [OpenAPI](openapi/openbanking-opendata-standard-swagger.json) — shared OBIE Open Data standard
-- [Documentation](https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax)
-- [API Reference](https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/ccc/ccc.html)
-
-### Halifax Account and Transaction Information API (AIS)
-
-OBIE Read/Write Account and Transaction Information (AIS) API for authorised AISPs. FAPI-secured (OAuth2/OIDC, PSD2 SCA, mTLS, OBIE/eIDAS certificates); onboarded via the Lloyds Banking Group Developer Portal. Base path follows the OBIE Read/Write v3.1 standard on the confirmed `api.halifax.co.uk` host and is not independently verified (authentication-gated).
-
-- **Human URL:** [https://developer.lloydsbanking.com/prod01/lbg/read-write](https://developer.lloydsbanking.com/prod01/lbg/read-write)
-- **Base URL:** `https://api.halifax.co.uk/open-banking/v3.1/aisp`
-
-#### Tags
-
-- Open Banking
-- Account Information
-- AIS
-- Read/Write
-
-#### Properties
-
-- [Documentation](https://developer.lloydsbanking.com/prod01/lbg/read-write)
-- [API Reference](https://openbankinguk.github.io/read-write-api-site3/v3.1.11/profiles/account-and-transaction-api-profile.html)
-
-### Halifax Payment Initiation API (PIS)
-
-OBIE Read/Write Payment Initiation (PIS) API for authorised PISPs. FAPI-secured (OAuth2/OIDC, PSD2 SCA, mTLS, OBIE/eIDAS certificates); onboarded via the Lloyds Banking Group Developer Portal. Base path follows the OBIE Read/Write v3.1 standard on the confirmed `api.halifax.co.uk` host and is not independently verified (authentication-gated).
-
-- **Human URL:** [https://developer.lloydsbanking.com/prod01/lbg/read-write](https://developer.lloydsbanking.com/prod01/lbg/read-write)
-- **Base URL:** `https://api.halifax.co.uk/open-banking/v3.1/pisp`
-
-#### Tags
-
-- Open Banking
-- Payment Initiation
-- PIS
-- Read/Write
-
-#### Properties
-
-- [Documentation](https://developer.lloydsbanking.com/prod01/lbg/read-write)
-- [API Reference](https://openbankinguk.github.io/read-write-api-site3/v3.1.11/profiles/payment-initiation-api-profile.html)
-
-### Halifax Confirmation of Funds API (CBPII)
-
-OBIE Read/Write Confirmation of Funds (CBPII) API for authorised CBPIIs. FAPI-secured (OAuth2/OIDC, PSD2 SCA, mTLS, OBIE/eIDAS certificates); onboarded via the Lloyds Banking Group Developer Portal. Base path follows the OBIE Read/Write v3.1 standard on the confirmed `api.halifax.co.uk` host and is not independently verified (authentication-gated).
-
-- **Human URL:** [https://developer.lloydsbanking.com/prod01/lbg/read-write](https://developer.lloydsbanking.com/prod01/lbg/read-write)
-- **Base URL:** `https://api.halifax.co.uk/open-banking/v3.1/cbpii`
-
-#### Tags
-
-- Open Banking
-- Confirmation of Funds
-- CBPII
-- Read/Write
-
-#### Properties
-
-- [Documentation](https://developer.lloydsbanking.com/prod01/lbg/read-write)
-- [API Reference](https://openbankinguk.github.io/read-write-api-site3/v3.1.11/profiles/confirmation-of-funds-api-profile.html)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.halifax.co.uk/)
-- [Developer Portal](https://developer.lloydsbanking.com/)
 - [Documentation](https://developer.lloydsbanking.com/prod01/lbg/opendata_halifax)
+- [Getting started](https://developer.lloydsbanking.com/prod01/lbg/get-started)
 - [Support](https://developer.lloydsbanking.com/prod01/lbg/lbg-support)
-- [LinkedIn](https://www.linkedin.com/company/halifax)
-- [Terms of Service](https://www.halifax.co.uk/aboutonline/legal-information.html)
-- [Privacy Policy](https://www.halifax.co.uk/aboutonline/security-and-privacy.html)
+- [Blog](https://www.halifax.co.uk/blog/)
+- [Terms of service](https://www.halifax.co.uk/aboutonline/legal-information.html)
+- [Privacy policy](https://www.halifax.co.uk/aboutonline/security-and-privacy.html)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 37.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 35.5 |
+| Contract governance | 18.2 |
+| Operational transparency | 5.3 |
+| Developer ergonomics | 58.9 |
+| Access clarity | 21.4 |
+
+**Agent readiness 19.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 35.4** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/halifax/](https://apis.io/providers/halifax/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Halifax: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/halifax/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
